@@ -1,0 +1,41 @@
+*{
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+button{
+    cursor: pointer;
+}
+body{
+    background-color: #EDEEF0;
+}
+.cta-text{
+    text-align: center;
+}
+.login-form{
+    text-align: center;
+}
+.login-form-wrapper{
+    position:absolute;
+    top:30%;
+    left:30%;
+    width:40%;
+
+    height:auto;
+    padding:20px,20px,20px;
+    border-radius:20px;
+    background-color:#fff;
+    padding:20px;
+}
+.login-button{
+    color:#fff;
+    background-color: #676EF8;
+    border-radius:5px;
+    font-size: 20px;
+    margin:0 auto;
+    text-align: center;
+    height:40px;
+    width:100px;
+    border: transparent;
+}
+.login-cta-text{
+    text-align: center;
+}

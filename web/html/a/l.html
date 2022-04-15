@@ -1,0 +1,35 @@
+
+{%load static%}
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register on WorkBox</title>
+  <meta name='description' content='Register on WorkBox. WorkBox is the place to store and access all your work!'>
+  <link rel='stylesheet' href="{%static 'css/auth/login.css'%}" type='text/css'>
+</head>
+<body>
+  <div class="login-form-wrapper">
+    <h1 class='cta-text'>Log in to WorkBox</h1>
+    <form method="POST" class='login-form'>
+      {% csrf_token %}
+      {% for field in login_form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+          <small style="color: grey">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+      <button class="login-button" type="submit">Login</button>
+    </form>
+    <p class="login-cta-text">Don't have an account? <a href="/register">Sign Up</a>.</p>
+  </div>
+</div>
+</body>
+</html>

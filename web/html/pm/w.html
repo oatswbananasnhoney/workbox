@@ -1,0 +1,90 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>Workbox Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel='stylesheet' href="{%static 'css/pm/w.css'%}">
+    </head>
+    <body>
+        <div id="mySidenav" class="sidenav">
+            <a href='/' class='ll'>
+                <h1 class='lt'>WorkBox</h1>
+            </a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav();showButton();">&times;</a>
+            <div class='first-nav-link'>
+                <a class='sidenav-a' href="/">Главная</a>
+            </div>
+                
+                <div class='nav-link'>
+                    <a class='sidenav-a' href="{%url 'my_tasks'%}">Мои Задачи</a>
+                </div>
+                <div class='nav-link'>
+                    <a class='sidenav-a' href="#">Входящие (tbd)</a>
+                </div>
+                <div class='nav-link'>
+                    <a class='sidenav-a' href="#">Отчеты (tbd)</a>
+                </div>
+                <div class='nav-link'>
+                    <a class='sidenav-a' href="#">Портфолио (tbd)</a>
+                </div>
+                <div class='nav-link'>
+                    <a class='sidenav-a' href="#">Цели (tbd)</a>
+                </div>
+            <div class='wbw'>
+                <h1 class='workbox-section-text'>Workboxы</h1>
+                <div class='nav-link'>
+                    {%for w in w%}
+                    <a class='sidenav-a'href="{{w.get_absolute_url}}">{{w.title}}</a>
+                    {%endfor%}
+                </div>
+            </div>
+          </div>
+          <div id="main">
+          <span id='navbar-button' style="font-size:30px;cursor:pointer" onclick="openNav();hideButton();">&#9776;</span>
+      <div class='ww'>
+        <div class='wn'>
+            <a href="">Обзор</a>
+            <a href="#">Сообщения (tbd)</a>
+            <a href="#">Календарь (tbd)</a>
+        </div>
+        <div class='wd'>
+            <h2>{{cw.title}}</h2>
+        </div>
+        <form action="{%url 'cp'%}" method='get'>
+            <input name='id' class="search-data"required type='text'style='display:none;'  value="{{cw.uid}}"></input>
+            <button class='create-project-button' type="submit">Создать Проект</button>
+        </form>
+        <section class='projects'>
+            {% for p in p%}
+            <a href="/{{p.get_absolute_url}}" class='project-link'>
+                <div class='project-wrapper'>
+                    <div class='color-wrapper' style="background-color: {{p.color}}">
+                    </div>
+                    {{p.title}}
+                </div></a>
+            {% endfor%}
+        </div>
+      </div>
+      
+        <script>
+            function hideButton(){
+                document.getElementById('navbar-button').style.opacity=0;
+            }
+            function showButton(){
+                document.getElementById('navbar-button').style.opacity=100;
+            }
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft= "0";
+            }
+            </script>
+           
+
+    </body>
+</html>
+{%load static%}

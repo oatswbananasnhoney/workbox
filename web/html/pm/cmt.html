@@ -1,0 +1,90 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>Workbox Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+            <link rel='stylesheet' href="{%static 'css/h.css'%}">
+            <link rel='stylesheet' href="{%static 'css/pm/h.css'%}">
+
+    </head>
+    <body>
+        {%if not user.is_authenticated%}
+        <div class='topnav'>
+            <a class='brand-a' href='/'><h1 class='brand-text'>WorkBox</h1></a>
+            <a  href='login/'><button class='login-button'>Войти</button></a>
+            <a href='register/'><button class='register-button'>Начать</button></a>
+    </div>
+    <div class='home-content-wrapper'>
+            <h1>Вся ваша работа в одной платформе!</h1>
+            <a href='register/'><button class='begin-button'>Начать</button></a>
+    </div>
+        {%else%}
+        <div id="mySidenav" class="sidenav">
+            <a href='/' class='ll'>
+                <h1 class='lt'>WorkBox</h1>
+            </a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav();showButton();">&times;</a>
+            <div class='first-nav-link'>
+                <a class='sidenav-a' href="/">Главная</a>
+            </div>
+                
+                <div class='nav-link'>
+                    <a class='sidenav-a' href="{%url 'my_tasks'%}">Мои Задачи</a>
+                </div>
+                <div class='nav-link'>
+                    <a class='sidenav-a' href="#">Входящие (tbd)</a>
+                </div>
+                <div class='nav-link'>
+                    <a class='sidenav-a' href="#">Отчеты (tbd)</a>
+                </div>
+                <div class='nav-link'>
+                    <a class='sidenav-a' href="#">Портфолио (tbd)</a>
+                </div>
+                <div class='nav-link'>
+                    <a class='sidenav-a' href="#">Цели (tbd)</a>
+                </div>
+            <div class='wbw'>
+                <h1 class='workbox-section-text'>Workboxы</h1>
+                <div class='nav-link'>
+                    {%for w in w%}
+                    <a class='sidenav-a'href="{{w.get_absolute_url}}">{{w.title}}</a>
+                    {%endfor%}
+                </div>
+            </div>
+          </div>
+          
+          <div id="main">
+                  <span id='navbar-button' style="font-size:30px;cursor:pointer;" class='navbar-button' onclick="openNav();hideButton();">&#9776;</span>
+            </div>
+            <h1>Создать Задачу</h1>
+            <div class='task-form-wrapper'>
+                <form method="POST">
+                    {%csrf_token%}
+                    {{task_form.as_p}}
+                    <button type='submit'>Создать</button>
+                </form>
+            </div>
+        {%endif%}
+        <script>
+            function hideButton(){
+                document.getElementById('navbar-button').style.opacity=0;
+            }
+            function showButton(){
+                document.getElementById('navbar-button').style.opacity=100;
+            }
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+            }
+            
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft= "0";
+            }
+            </script>
+
+    </body>
+</html>
+{%load static%}

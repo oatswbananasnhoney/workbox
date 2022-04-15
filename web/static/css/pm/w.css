@@ -1,0 +1,121 @@
+body{
+    background-color: #f1f1f1;
+}
+.ww{
+    margin:0 auto;
+    text-align:center
+}
+.create-project-button{
+    background-color:#FF5D63;
+    border:none;
+    padding:10px 20px;
+    color:white;
+    font-size:18px;
+    border-radius:5px;
+    display:block;
+    margin:0 auto;
+}
+.project-link{
+    text-decoration:none;
+    color:black;
+}
+.projects{
+
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 1em;
+    justify-items: center;
+
+}
+.project-wrapper{
+    margin:20px;
+    width:150px;
+    height:170px;
+    background-color: #fff;
+    text-align: center;
+    border-radius:20px;
+}
+.color-wrapper{
+    border-radius:20px;
+    width:150px;
+    height:150px;
+    
+}
+
+*{
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #1E1F21;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+.sidenav-a{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    display: block;
+    transition: 0.3s;
+    margin-left:20px;
+}
+.sidenav .closebtn {
+    font-size:36px;
+    text-decoration: none;
+    color:#6D6E6F;
+    position:absolute;
+    top:25px;
+    right:30px;
+}
+.workbox-section-text{
+    position:relative;
+    right:-15px;
+    color:#fff;
+    font-size:18px;
+}
+.navbar-button{
+    color:#6D6E6F;
+}
+.navbar-button:hover{
+    color:#1E1F21;
+}
+.sidenav .closebtn:hover{
+    color:#fff;
+}
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+.first-nav-link{
+    margin-top:30px;
+    width:100%;
+}
+.nav-link{
+    width:100%;
+}
+.first-nav-link:hover{
+    background-color:#303132;
+}
+.nav-link:hover{
+    background-color:#303132;
+}
+.ll{
+    text-decoration:none;
+    padding:0 auto;
+    margin:0 auto;
+}
+.ll:hover{
+    text-decoration:none;
+}
+.lt{
+    font-size:20px;
+    color:#fff;
+    margin-left:15px;
+}
